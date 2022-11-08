@@ -5,5 +5,6 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.string :organization
       t.string :location
       t.integer :user_id
+    end
   end
 end
