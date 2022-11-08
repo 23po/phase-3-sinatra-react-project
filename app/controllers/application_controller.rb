@@ -12,6 +12,28 @@ class ApplicationController < Sinatra::Base
       # return a JSON response with an array of all the game data
       jobs.to_json
   end
+
+  get '/jobs/:id' do
+    job = Job.find(params[:id]) 
+    job.to_json
+  end
+
+  get 'jobs/:stack' do
+    job = Job.find_by(:stack, params[:stack])
+    job.to_json
+  end
+
+  get 'jobs/:recruiter' do
+    job = Job.find_by(params[:recruiter])
+    job.to_json
+  end
   
+  delete 'jobs/:id' do
+    job = Job.find_by(params[:id])
+    job.destroy 
+    job.to_json
+  end
+
+
 
 end
