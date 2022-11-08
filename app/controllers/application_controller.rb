@@ -6,4 +6,12 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get '/jobs' do
+      # get all the games from the database
+      jobs = Job.all
+      # return a JSON response with an array of all the game data
+      jobs.to_json
+  end
+  
+
 end
