@@ -3,7 +3,7 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
    get '/' do
-    erb :index
+    '<h2>TechOpenings <em>API</em></h2>'
    end
   
   get '/jobs' do
@@ -13,27 +13,42 @@ class ApplicationController < Sinatra::Base
       jobs.to_json
   end
 
-  get '/jobs/:id' do
-    job = Job.find(params[:id]) 
-    job.to_json
-  end
+  # get '/jobs/:id' do
+  #    job = Job.find(params[:id]) 
+  #    job.to_json
+  # end
 
-  get 'jobs/:stack' do
-    job = Job.find_by(:stack, params[:stack])
-    job.to_json
-  end
-
-  get 'jobs/:recruiter' do
-    job = Job.find_by(params[:recruiter])
-    job.to_json
-  end
+ 
+  #  get '/jobs/:stack' do
+  #    jobs = Job.all
+  #    jobs.filter {|job|job.stack.include?(params[:stack]).to_json}
   
+  #  end
+
+  get '/jobs/:recruiter' do
+     jobs = Job.find_by(recruiter: params[:recruiter])
+     jobs.to_json
+  end
+
+  # get '/jobs/:recruiter' do |n|
+  #   # matches "GET /hello/foo" and "GET /hello/bar"
+  #   # params['name'] is 'foo' or 'bar'
+  #   # n stores params['name']
+  #   "recruiter #{n}!"
+  # end
+  
+  post 'jobs' do
+    job = Job.create(title: params[:title], recruiter: prams[:recruiter], remote?: params[:remote?], location: params[:location], user_id: params[user_id], stack: params[:stack])
+    job.to_json
+  end
+
   delete 'jobs/:id' do
-    job = Job.find_by(params[:id])
+    job = Job.find(params[:id])
     job.destroy 
     job.to_json
   end
 
-
+##UPDATE
+##MORE VIEWS find_by_name
 
 end
