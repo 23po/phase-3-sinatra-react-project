@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
    get '/' do
     '<h2>TechOpenings <em>API</em></h2>'
    end
-  
+   set :default_content_type, 'application/json'
   get '/jobs' do
       # get all the games from the database
       jobs = Job.all
