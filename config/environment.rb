@@ -6,7 +6,6 @@ require 'bundler/setup'
 Bundler.require(:default, ENV['RACK_ENV'])
 
 # Require in all files in 'app' directory
-set :database_file, “./database.yml”
-
+set :database_file, './database.yml'
 
 require_all 'app'
