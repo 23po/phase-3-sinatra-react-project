@@ -1,11 +1,11 @@
 class ApplicationController < Sinatra::Base
-   #set :default_content_type, 'application/json'
+   set :default_content_type, 'application/json'
   
   # Add your routes here
    get '/' do
     '<h2>TechOpenings <em>API</em></h2>'
    end
-   set :default_content_type, 'application/json'
+   
   get '/jobs' do
       # get all the games from the database
       jobs = Job.all
