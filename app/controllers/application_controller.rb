@@ -48,6 +48,13 @@ class ApplicationController < Sinatra::Base
     job.to_json
   end
 
+  patch'/jobs/:id' do
+    @job = Job.find_by(id:params[:id])
+    @job.update(title:params[:title])
+    @job.to_json
+
+end
+
 ##UPDATE
 ##MORE VIEWS find_by_name
 
