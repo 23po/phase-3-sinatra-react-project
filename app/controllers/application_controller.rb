@@ -13,10 +13,10 @@ class ApplicationController < Sinatra::Base
       jobs.to_json
   end
 
-  # get '/jobs/:id' do
-  #    job = Job.find(params[:id]) 
-  #    job.to_json
-  # end
+   get '/jobs/:id' do
+      job = Job.find(params[:id]) 
+      job.to_json
+   end
 
  
   #  get '/jobs/:stack' do
@@ -25,10 +25,10 @@ class ApplicationController < Sinatra::Base
   
   #  end
 
-  get '/jobs/:recruiter' do
-     jobs = Job.find_by(recruiter: params[:recruiter])
-     jobs.to_json
-  end
+  # get '/jobs/:recruiter' do
+  #    jobs = Job.find_by(recruiter: params[:recruiter])
+  #    jobs.to_json
+  # end
 
   # get '/jobs/:recruiter' do |n|
   #   # matches "GET /hello/foo" and "GET /hello/bar"
