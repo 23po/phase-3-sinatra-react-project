@@ -37,7 +37,7 @@ class ApplicationController < Sinatra::Base
   #   "recruiter #{n}!"
   # end
   
-  post 'jobs' do
+  post '/jobs' do
     job = Job.create(title: params[:title], recruiter: prams[:recruiter], remote?: params[:remote?], location: params[:location], user_id: params[user_id], stack: params[:stack])
     job.to_json
   end
