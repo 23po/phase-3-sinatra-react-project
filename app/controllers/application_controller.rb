@@ -43,6 +43,7 @@ class ApplicationController < Sinatra::Base
       recruiter: params[:recruiter],  
       location: params[:location],  
       stack: params[:stack])
+      user_id: params[:user_id]
     job.to_json
   end
 
@@ -50,6 +51,16 @@ class ApplicationController < Sinatra::Base
     job = Job.find(params[:id])
     job.destroy 
     job.to_json
+  end
+
+  get '/users' do 
+    users = User.all
+    users.to_json
+  end
+
+  get '/users/:id'
+    user = User.find(params[:id])
+    user.to_json
   end
 
 
