@@ -42,8 +42,8 @@ class ApplicationController < Sinatra::Base
       title: params[:title], 
       recruiter: params[:recruiter],  
       location: params[:location],  
-      stack: params[:stack])
-      user_id: params[:user_id]
+      stack: params[:stack],
+      user_id: params[:user_id])
     job.to_json
   end
 
