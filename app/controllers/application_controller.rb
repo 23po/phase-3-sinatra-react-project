@@ -2,7 +2,7 @@ class ApplicationController < Sinatra::Base
    set :default_content_type, 'application/json'
   
   # Add your routes here
-   get '/' do
+  get '/' do
     '<h2>TechOpenings <em>API</em></h2>'
    end
    
@@ -13,10 +13,11 @@ class ApplicationController < Sinatra::Base
       jobs.to_json
   end
 
-   get '/jobs/:id' do
+   
+  get '/jobs/:id' do
       job = Job.find(params[:id]) 
       job.to_json
-   end
+  end
 
  
   #  get '/jobs/:stack' do
@@ -49,7 +50,7 @@ class ApplicationController < Sinatra::Base
 
   delete 'jobs/:id' do
     job = Job.find(params[:id])
-    job.destroy 
+    job.destroy
     job.to_json
   end
 
@@ -58,13 +59,9 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
-  get '/users/:id'
+  get '/users/:id' do
     user = User.find(params[:id])
     user.to_json
   end
-
-
-##UPDATE
-##MORE VIEWS find_by_name
 
 end
