@@ -1,5 +1,5 @@
 class ApplicationController < Sinatra::Base
-   set :default_content_type, 'application/json'
+  #  set :default_content_type, 'application/json'
   
   # Add your routes here
   get '/' do
@@ -14,9 +14,11 @@ class ApplicationController < Sinatra::Base
   end
 
    
-  get '/jobs/:id' do
-      job = Job.find(params[:id]) 
-      job.to_json
+  get '/jobs/:user_id' do
+    jobs = Job.all
+    filteredJobs = jobs.find_all {|job| job.user_id == params[:user_id].to_i}
+    
+    filteredJobs.to_json
   end
 
  
@@ -59,8 +61,8 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
-  get '/users/:id' do
-    user = User.find(params[:id])
+  get '/users/:name' do
+    user = User.find_by(name: params[:name])
     user.to_json
   end
 
