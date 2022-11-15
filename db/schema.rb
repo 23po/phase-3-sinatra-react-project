@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2022_11_08_190045) do
   create_table "jobs", force: :cascade do |t|
     t.string "title"
     t.string "recruiter"
-    t.string "remote?"
+    t.string "ifremote"
     t.string "location"
     t.integer "user_id"
     t.string "stack"
